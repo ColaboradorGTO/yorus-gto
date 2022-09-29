@@ -1,0 +1,294 @@
+{% load static  %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>Detalhes do produto</title>
+
+
+{% include 'home/includes/css.html' %}
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+
+    {% include 'home/includes/header.html' %}
+
+
+        <!-- banner-section -->
+        <section class="banner-style-one">
+            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
+            <div class="banner-carousel owl-theme owl-carousel">
+                
+                
+                <!-- Loop Here -->
+                {% for offer in offers_list %}
+                <div class="slide-item">
+                    <div class="auto-container">
+                        <div class="content-inner">
+                            <div class="content-box">
+                                <h1>{{ offer.title }} <br /><span>{{ offer.marked }}%</span> Desconto</h1>
+                                <h3>Summer Lookbook - 2020</h3>
+                                <p>{{ offer.description }}</p>
+                                <div class="btn-box">
+                                    <a href="index.html" class="theme-btn-one">Ver todos os produtos<i class="flaticon-right-1"></i></a>
+                                </div>
+                            </div>
+                            <figure class="image-box image-1"><img src="{{ offer.imagem.thumb.url }}" alt=""></figure>
+                        </div> 
+                    </div>
+                </div>
+                {% endfor %}
+                
+        
+            </div>
+        </section>
+        <!-- banner-section end -->
+
+
+        <!-- topcategory-section -->
+        <section class="topcategory-section centred">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h2>Top Categorias</h2>
+                    <p>Siga as tendências mais populares e obtenha itens exclusivos da castro shop</p>
+                    <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
+                </div>
+                <div class="row clearfix">
+                    
+                    <!-- Loop Here -->
+                    {% for category in category_list %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 category-block">
+                        <div class="category-block-one wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <figure class="image-box"><img src="{{ category.image.thumb.url }}" alt="{{ category.title }}"></figure>
+                            <h5><a href="index.html">{{ category.title }}</a></h5>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+               
+                </div>
+            </div>
+        </section>
+        <!-- topcategory-section end -->
+
+
+        <!-- shop-section -->
+        <section class="shop-section">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h2>Nossa coleção principal</h2>
+                    <p>Existem alguns produtos que destacamos para escolher o seu melhor</p>
+                    <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
+                </div>
+                <div class="sortable-masonry">
+                    <div class="filters">
+                        <ul class="filter-tabs filter-btns centred clearfix">
+                            <li class="active filter" data-role="button" data-filter=".best_seller">Novos</li>
+                            <li class="filter" data-role="button" data-filter=".new_arraivals">Outlet</li>
+                            <li class="filter" data-role="button" data-filter=".top_rate">Tendencias</li>
+                        </ul>
+                    </div>
+                    <div class="items-container row clearfix">
+                        
+                        <!-- .best_seller .new_arraivals .top_rate são as três variáveis que colocaremos ao final da linha abaixo -->
+                    
+                        {% for product in product_list %}
+
+                    
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals top_rate">
+                            <div class="shop-block-one">
+                                <div class="inner-box">
+                                    <figure class="image-box">
+                                        <img src="{{ product.image1.thumb.url }}" alt="">
+                                        <ul class="info-list clearfix">
+                                            <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
+                                            <li><a href="#" hx-get="{ url 'add_to_cart' product.id %}" hx-target="#menu-cart-button" hx-swap="outerHTML">Add to cart</a></li>
+                                            <li><a href="{{ product.image1.url }}" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
+                                        </ul>
+                                    </figure>
+                                    <div class="lower-content">
+                                        <a href="{% url 'detalhes-do-produto' product.id %}">{{ product.title }}</a>
+                                        <span class="price">R$ {{ product.price }}</span>
+                                    </div>
+
+
+                                  
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                      
+                        
+                        
+                        
+                        
+                        
+        
+                    </div>
+                </div>
+                <div class="more-btn centred"><a href="shop.html" class="theme-btn-one">Ver todos os produtos<i class="flaticon-right-1"></i></a></div>
+            </div>
+        </section>
+        <!-- shop-section end -->
+
+
+        <!-- cta-section -->
+        <section class="cta-section">
+            <div class="image-layer" style="background-image: url({% static 'assets/images/background/cta-bg-1.jpg' %};"></div>
+            <div class="auto-container">
+                <div class="cta-inner centred">
+                    <div class="pattern-layer">
+                        <div class="pattern-1" style="background-image: url({% static 'assets/images/shape/shape-2.png' %});"></div>
+                        <div class="pattern-2" style="background-image: url({% static 'assets/images/shape/shape-3.png' %});"></div>
+                    </div>
+                    <h2>Liquidação de final de temporada até 50%</h2>
+                    <p>Welcome to the new range of shaving products from master barber. We have over three decades of experience in the male grooming industry</p>
+                    <a href="shop.html" class="theme-btn-one">Shop Now<i class="flaticon-right-1"></i></a>
+                </div>
+            </div>
+        </section>
+        <!-- cta-section end -->
+
+
+        <!-- news-section -->
+        <section class="news-section">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h2>Yorus Blog</h2>
+                    <p>Excepteur sint occaecat cupidatat non proident sunt</p>
+                    <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
+                </div>
+                <div class="row clearfix">
+                   
+                   
+                   
+                
+                    <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="blog-details.html"><img src="{% static 'assets/images/news/news-3.jpg' %}" alt=""></a></figure>
+                                <div class="lower-content">
+                                    <span class="post-date">May 03, 2020</span>
+                                    <h3><a href="blog-details.html">The Biebers Just Switched Up Their Couple Style</a></h3>
+                                    <ul class="post-info clearfix">
+                                        <li><a href="index.html">by admin</a></li>
+                                        <li><a href="index.html">05 Comments</a></li>
+                                    </ul>
+                                    <p>Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud exercitation laboris.</p>
+                                    <div class="link"><a href="blog-details.html">Read More<i class="flaticon-right-1"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               
+               
+                </div>
+            </div>
+        </section>
+        <!-- news-section end -->
+
+
+        <!-- service-section -->
+        <section class="service-section">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                            <div class="service-block-one">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="flaticon-truck"></i></div>
+                                    <h3><a href="index.html">Frete gratis</a></h3>
+                                    <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                            <div class="service-block-one">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="flaticon-credit-card"></i></div>
+                                    <h3><a href="index.html">Segurança</a></h3>
+                                    <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                            <div class="service-block-one">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="flaticon-24-7"></i></div>
+                                    <h3><a href="index.html">Support 24/7</a></h3>
+                                    <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                            <div class="service-block-one">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="flaticon-undo"></i></div>
+                                    <h3><a href="index.html">30 garantia</a></h3>
+                                    <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão..</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- service-section end -->
+
+
+        <!-- instagram-section -->
+        <section class="instagram-section">
+            <div class="outer-container">
+                <div class="sec-title">
+                    <h2>Nossas Marcas</h2>
+                    <p>A Yorus trabalha com as melhores marcas do mercado</p>
+                    <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
+                </div>
+                <div class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
+                    
+                    
+                    {% for brand in brand_list %}
+                    <figure class="image-box" style="background-color: transparent;">
+                        <img src="{{ brand.image.url }}" alt="">
+                        <!-- 
+                        <ul class="info-list clearfix">
+                            <li><a href="index-2.html"><i class="flaticon-heart"></i>450</a></li>
+                            <li><a href="index-2.html"><i class="flaticon-commentary"></i>320</a></li>
+                        </ul>
+                        -->
+                    </figure>
+                    {% endfor %}
+                    
+                    
+                    
+                </div>
+            </div>
+        </section>
+        <!-- instagram-section end -->
+
+
+       {% include 'home/includes/footer.html' %}
+
+
+        <!--Scroll to top-->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <i class="fas fa-long-arrow-alt-up"></i>
+        </button>
+    </div>
+
+    {% include 'home/includes/js.html' %}
+
+    
+</body><!-- End of .page_wrapper -->
+</html>

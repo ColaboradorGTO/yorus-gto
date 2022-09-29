@@ -1,0 +1,190 @@
+{% load static %}
+
+
+<!-- HTMX -->
+<script src="https://unpkg.com/htmx.org@1.8.0"></script>
+
+<div class="boxed_wrapper">
+    <!-- Preloader -->
+    <div class="loader-wrap">
+        <div class="preloader"><div class="preloader-close">Fechar Preloader</div></div>
+        <div class="layer layer-one"><span class="overlay"></span></div>
+        <div class="layer layer-two"><span class="overlay"></span></div>        
+        <div class="layer layer-three"><span class="overlay"></span></div>        
+    </div>
+
+
+    <!-- search-popup -->
+    <div id="search-popup" class="search-popup">
+        <div class="close-search"><i class="flaticon-close"></i></div>
+        <div class="popup-inner">
+            <div class="overlay-layer"></div>
+            <div class="search-form">
+                <form method="post" action="index.html">
+                    <div class="form-group">
+                        <fieldset>
+                            <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
+                            <input type="submit" value="Search Now!" class="theme-btn style-four">
+                        </fieldset>
+                    </div>
+                </form>
+                <h3>Recent Search Keywords</h3>
+                <ul class="recent-searches">
+                    <li><a href="index.html">Finance</a></li>
+                    <li><a href="index.html">Idea</a></li>
+                    <li><a href="index.html">Service</a></li>
+                    <li><a href="index.html">Growth</a></li>
+                    <li><a href="index.html">Plan</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- search-popup end -->
+
+
+    <!-- main header -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="auto-container">
+                <div class="top-inner clearfix">
+                    <div class="top-left pull-left">
+                        <ul class="info clearfix">
+                            <li><i class="flaticon-email"></i><a href="mailto:contato@lojasyorus.com.br">contato@lojasyorus.com.br</a></li>
+                            <li><i class="flaticon-global"></i> Brasília - DF</li>
+                        </ul>
+                    </div>
+                    <div class="top-right pull-right">
+                        <ul class="social-links clearfix">
+                            <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="index.html"><i class="fab fa-vimeo-v"></i></a></li>
+                            <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
+                        </ul>
+
+                    <!--
+                        <div class="language">
+                            <div class="lang-btn">
+                                <span class="flag"><img src="{% static 'assets/images/icons/icon-lang.png' %}" alt="" title="English"></span>
+                                <span class="txt">English</span>
+                                <span class="arrow fa fa-angle-down"></span>
+                            </div>
+                            <div class="lang-dropdown">
+                                <ul>
+                                    <li><a href="index.html">German</a></li>
+                                    <li><a href="index.html">Italian</a></li>
+                                    <li><a href="index.html">Chinese</a></li>
+                                    <li><a href="index.html">Russian</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    
+                        <div class="price-box">
+                            <span>USD</span>
+                            <ul class="price-list clearfix">
+                                <li><a href="index.html">USD</a></li>
+                                <li><a href="index.html">UK</a></li>
+                                <li><a href="index.html">URO</a></li>
+                                <li><a href="index.html">Spanish</a></li>
+                            </ul>
+                        </div>
+                    -->
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="outer-box">
+                    <figure class="logo-box"><a href="/"><img src="{% static 'home/assets/images/yorus-logo-preto-ecommerce.svg' %}"  width="150" height="48" alt=""></a></figure>
+                    <div class="menu-area">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="{% if active == 'index' %} current {% endif %}"><a href="/">Início</a></li>
+                                    <li class="dropdown"><a href="/">Shop<span>Hot</span></a></li>
+
+
+                                    
+                                    <li class="dropdown"><a href="/">Blog</a></li>
+                                   
+                                    <li><a href="/">Contato</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <ul class="menu-right-content clearfix">
+                        <li>
+                            <div class="search-btn">
+                                <button type="button" class="search-toggler"><i class="flaticon-search"></i></button>
+                            </div>
+                        </li>
+                        <li><a href="#"><i class="flaticon-like"></i></a></li>
+                        <li><a href="#"><i class="flaticon-user"></i></a></li>
+                        
+                        
+                        
+                        <li class="shop-cart">
+                            <a href="shop.html"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
+                        </li>
+                        
+                    
+                      
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="auto-container">
+                <div class="outer-box clearfix">
+                    <div class="logo-box pull-left">
+                        <figure class="logo"><a href="/"><img src="{% static 'home/assets/images/yorus-logo-preto-ecommerce.svg' %}" width="150" height="48" alt=""></a></figure>
+                    </div>
+                    <div class="menu-area pull-right">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+        <nav class="menu-box">
+            <div class="nav-logo"><a href="index.html"><img src="{% static 'home/assets/images/yorus-logo-branco-ecommerce.svg' %}" alt="" title=""></a></div>
+            <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+            <div class="contact-info">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Brasília - DF</li>
+                    <li><a href="tel:+8801682648101">+55 (61) 0000-0000</a></li>
+                    <li><a href="mailto:info@example.com">contato@yorus.com.br</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
+                    <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div><!-- End Mobile Menu -->
