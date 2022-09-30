@@ -1,0 +1,53 @@
+           <table class="cart-table" id="cartList">
+                                <thead class="cart-header">
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th class="prod-column">Nome do produto</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th class="price">Preço</th>
+                                        <th class="quantity">Quantidade</th>
+                                        <th>Subtotal</th>
+                                    </tr>    
+                                </thead>
+                                <tbody>
+                                    
+                                    
+                                    {% for product_id, item in cart_data.items %}
+                                    
+                                    
+                                     <tr id="cart-item-{{ item.product.id }}">
+                                        <td colspan="4" class="prod-column">
+                                            <div class="column-box">
+
+
+                                                <button class="delete-item" data-item="{{ product_id}}"> EXCLUIR
+                                                </button>
+
+
+
+                                                <div class="remove-btn" >
+                                                    <i class="flaticon-close"></i>
+                                                </div>
+                                                <div class="prod-thumb">
+                                                    <a href="#"><img src="/product/{{ item.image }}" alt=""></a>
+                                                </div>
+                                                <div class="prod-title">
+                                                    {{ item.title }}
+                                                </div>    
+                                            </div>
+                                        </td>
+                                        <td class="price">R$  {{ item.price }}</td>
+                                        <td class="qty">
+                                            <div class="item-quantity">
+                                                <input class="quantity-spinner" type="text" value="{{ item.qty }}" name="quantity">
+                                            </div>
+                                        </td>
+                                        <td class="sub-total">R$ {% widthratio item.price 1 item.qty %}</td>
+                                    </tr>
+
+                                    {% endfor %}
+                                
+                                
+                                </tbody>    
+                            </table>

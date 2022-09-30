@@ -101,9 +101,7 @@
                                     </ul>
                                     <div class="reviews"><a href="product-single.html">(5 Reviews)</a></div>
                                 </div>
-                                <span class="item-price">
-                                  
-                                </span>
+                                <span class="product-price" >{{ product_detail.price }}</span>
                                 <div class="text">
                                     <p>{{ product_detail.description }}</p>
                                 </div>
@@ -163,6 +161,24 @@
                                     <div class="item-quantity">
                                         <input class="quantity-spinner" type="text" value="1" name="quantity">
                                     </div>
+
+
+
+                                    <!-- Add to cart -->
+                                    <input type="hidden" name="" class="product-image" value="{{ product_detail.image1.url }}" />
+                                    <input type="number" value="1" name="" id="productQty"/>
+                                    <input type="number" value="{{ product_detail.price }}" class="product-price" name="" id="productQty"/>
+
+                                    <input type="hidden" class="product-id" value="{{ product_detail.id }}"/>
+                                    <input type="hidden" class="product-title" value="{{ product_detail.title }}"/>
+
+                                    <button type="button"  id="addToCartBtn" >ADICIONAR AO CARRINHO</button>
+
+                                    <!-- Add to cart end -->
+
+
+
+
                                     <div class="btn-box"><button type="button" class="theme-btn-two">Add to cart</button></div>
                                     <ul class="info clearfix">
                                         <li><a href="product-details.html"><i class="flaticon-heart"></i></a></li>
@@ -305,7 +321,7 @@
 
                                     <div class="lower-content">
                                         <a href="{% url 'detalhes-do-produto' product.id %}">{{ product.title }}</a>
-                                        <span class="price">R$ {{ product.price }}</span>
+                                        <span class="price">R$ {{ product_detail.price }}</span>
                                     </div>
                                 </div>
                             </div>
