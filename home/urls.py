@@ -14,7 +14,7 @@ urlpatterns = [
     # Cart ajax 
     path('add-to-cart', views.add_to_cart, name='add-to-cart'), 
     path('delete-cart-item', views.delete_cart_item, name='delete-cart-item'), 
-    path('update-to-cart', views.update_to_cart, name='update-to-cart'),
+    path('update', views.update, name='update'),
     
 
 ]

@@ -7,6 +7,7 @@
                                         <th>&nbsp;</th>
                                         <th class="price">Preço</th>
                                         <th class="quantity">Quantidade</th>
+                                        <th class="quantity">Update</th>
                                         <th>Subtotal</th>
                                     </tr>    
                                 </thead>
@@ -20,29 +21,39 @@
                                         <td colspan="4" class="prod-column">
                                             <div class="column-box">
 
+                                                
 
+                                                <!--
                                                 <button class="delete-item" data-item="{{ product_id}}"> EXCLUIR
-                                                </button>
+                                                </button> -->
+
+                                                <!-- Update -->
+                                                <input type="numer" class="product-qty-{{ product_id}}" value="{{ item.qty }}" name="">
+                                                <button class="update-item" data-item="{{ product_id }}" >UPPPP</button>
 
 
 
                                                 <div class="remove-btn" >
-                                                    <i class="flaticon-close"></i>
+                                                    
+                                                    <button class="remove-btn delete-item" data-item="{{ product_id}}"> <i class="flaticon-close"></i>
+                                                    </button>
+
                                                 </div>
                                                 <div class="prod-thumb">
                                                     <a href="#"><img src="/product/{{ item.image }}" alt=""></a>
                                                 </div>
                                                 <div class="prod-title">
-                                                    {{ item.title }}
+                                                    {{ product_id.title }}
                                                 </div>    
                                             </div>
                                         </td>
                                         <td class="price">R$  {{ item.price }}</td>
                                         <td class="qty">
                                             <div class="item-quantity">
-                                                <input class="quantity-spinner" type="text" value="{{ item.qty }}" name="quantity">
+                                                <input class="quantity-spinner product-qty-{{product_id}}" type="text" value="{{ item.qty }}" name="quantity">
                                             </div>
                                         </td>
+                                        <td class="price"><button class="update-item" data-item="{{ product_id }}">Update</button></td>
                                         <td class="sub-total">R$ {% widthratio item.price 1 item.qty %}</td>
                                     </tr>
 

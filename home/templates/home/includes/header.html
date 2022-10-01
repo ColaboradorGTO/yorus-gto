@@ -133,13 +133,13 @@
                         
                         
                         <li class="shop-cart">
-                            <a href="{% url 'carrinho' %}"><i class="flaticon-shopping-cart-1 cart-list"></i><span>{{ request.session.cartdata|length }}</span></a>
+                            <a href="{% url 'carrinho' %}"><i class="flaticon-shopping-cart-1 "></i><span class="cart-list">{{ request.session.cartdata|length }}</span></a>
                         </li>
 
-                        <p>{{ request.session.cartdata|length }}</p>
+                       
                         
                     
-                      
+        
 
                     </ul>
                 </div>

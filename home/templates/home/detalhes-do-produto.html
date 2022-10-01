@@ -108,7 +108,7 @@
 
                                 
                                     <div class="size-box">
-                                        <h5>Size:</h5>
+                                        <h5>Tamanho:</h5>
 
 
                                         {% for sizea in product_detail.productattribute_set.all %}
@@ -131,7 +131,7 @@
                                 
 
                                 <div class="color-box">
-                                    <h5>Color:</h5>
+                                    <h5>Cor:</h5>
                                     <div class="color-inner">
 
 
@@ -140,7 +140,7 @@
                                         
                                         <input type="color" id="head" name="head" value="#{{ color.color.color_code }}">
 
-                                        <button type="select" style="background-color: #{{ color.color.color_code }};" id="test1" name="radio-group" > Escolher</button>
+                                    
 
                                         {% endfor %}
                                         
@@ -159,27 +159,38 @@
 
                                 <div class="othre-options clearfix">
                                     <div class="item-quantity">
-                                        <input class="quantity-spinner" type="text" value="1" name="quantity">
+                                        <input class="quantity-spinner" type="number" id="productQty"  value="1" name="quantity">
                                     </div>
 
 
 
                                     <!-- Add to cart -->
                                     <input type="hidden" name="" class="product-image" value="{{ product_detail.image1.url }}" />
-                                    <input type="number" value="1" name="" id="productQty"/>
-                                    <input type="number" value="{{ product_detail.price }}" class="product-price" name="" id="productQty"/>
+                                    <!-- <input type="number" value="1" name="" id="productQty"/> -->
+                                    <!-- <input type="number" value="{{ product_detail.price }}" class="product-price" name="" id="productQty"/> -->
 
                                     <input type="hidden" class="product-id" value="{{ product_detail.id }}"/>
                                     <input type="hidden" class="product-title" value="{{ product_detail.title }}"/>
 
-                                    <button type="button"  id="addToCartBtn" >ADICIONAR AO CARRINHO</button>
+                                   
+                                    <!-- <button type="submit"   >ADICIONAR AO CARRINHO</button>  -->
+                                
 
                                     <!-- Add to cart end -->
 
+                                    <!-- HHOOMMME -->
+                                    <span class="product-price-{{data.id}}">{{ product_detail.price }}</span>
+                                    <input type="number" value="1" name=""  class="product-qty-{{data.id}}" id="productQty"/> 
+                                    <input type="hidden" name="" class="product-image-{{data.id}}" value="{{ product_detail.image1.url }}" />
+                                    <input type="hidden" class="product-id" value="{{ product_detail.id }}"/>
+                                    <input type="hidden" class="product-title" value="{{ product_detail.title }}"/>
+
+                                      <button class="add-to-cart" data-index={{product_detail.id}}>CARRINHO</button>
 
 
 
-                                    <div class="btn-box"><button type="button" class="theme-btn-two">Add to cart</button></div>
+
+                                    <div class="btn-box"><button type="button" id="addToCartBtn" class="theme-btn-two">Add carrinho</button></div>
                                     <ul class="info clearfix">
                                         <li><a href="product-details.html"><i class="flaticon-heart"></i></a></li>
                                         <li><a href="product-details.html"><i class="flaticon-search"></i></a></li>
@@ -310,15 +321,15 @@
                                         <img src="{{ product.image1.thumb.url }}" alt="">
                                         <ul class="info-list clearfix">
                                             <li><a href="index.html"><i class="flaticon-heart"></i></a></li>
-                                            <li><a href="product-details.html">Add carrinho</a></li>
+                                            
+                                            <!-- Add to cart -->
+                                             <li><a href="" id="addToCartBtn">Add carrinho</a></li> 
+
+                                            
+                                            
                                             <li><a href="{% static 'assets/images/resource/shop/shop-1.jpg' %}" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
                                         </ul>
                                     </figure>
-
-
-
-
-
                                     <div class="lower-content">
                                         <a href="{% url 'detalhes-do-produto' product.id %}">{{ product.title }}</a>
                                         <span class="price">R$ {{ product_detail.price }}</span>
