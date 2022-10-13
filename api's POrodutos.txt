@@ -1,0 +1,5 @@
+http://b1.ativy.com:7502/quality/concentrador_homologacao/api/produto.xsjs?idempresa=91&codeBars=0000000002718
+
+http://b1.ativy.com:7502/quality/concentrador_homologacao/api/empresa.xsjs?idSubGrupoEmpresa=3
+
+http://b1.ativy.com:7502/quality/concentrador_homologacao/api/empresa.xsjs?id=91
